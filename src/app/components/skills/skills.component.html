@@ -1,0 +1,25 @@
+<section id="skills" class="section-pad">
+
+  <div #revealEl>
+    <p class="section-label">Technical Expertise</p>
+    <h2 class="section-title">SKILLS &amp; STACK</h2>
+    <p class="section-sub">Technologies I build with, every day.</p>
+  </div>
+
+  <div class="skills-grid">
+    <div
+      class="skill-card reveal"
+      #revealEl
+      *ngFor="let cat of data.skillCategories; let i = index"
+      [style.transition-delay]="(i * 0.08) + 's'"
+    >
+      <div class="card-top-bar"></div>
+      <div class="card-icon">{{ cat.icon }}</div>
+      <h3 class="card-title">{{ cat.title }}</h3>
+      <div class="tag-list">
+        <span class="tag" *ngFor="let t of cat.tags">{{ t }}</span>
+      </div>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,55 @@
+<section id="projects" class="section-pad">
+
+  <div #revealEl>
+    <p class="section-label">Featured Work</p>
+    <h2 class="section-title">PROJECTS</h2>
+    <p class="section-sub">Things I've built from scratch.</p>
+  </div>
+
+  <div class="projects-grid">
+    <div
+      class="project-card reveal"
+      #revealEl
+      *ngFor="let p of data.projects; let i = index"
+      [style.transition-delay]="(i * 0.12) + 's'"
+    >
+      <div class="thumb">
+        <div class="thumb-pattern"></div>
+        <div class="thumb-glow"></div>
+        <span class="thumb-number">0{{ i + 1 }}</span>
+        <span class="thumb-icon">{{ p.icon }}</span>
+        <div class="thumb-links">
+          <a
+            [href]="p.github"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-btn"
+            title="View on GitHub"
+          >↗</a>
+          <a
+            *ngIf="p.live"
+            [href]="p.live"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-btn"
+            title="Live Demo"
+          >⬡</a>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="stack-row">
+          <span class="tag" *ngFor="let t of p.stack">{{ t }}</span>
+        </div>
+        <h3 class="project-name">{{ p.name }}</h3>
+        <p class="project-desc">{{ p.desc }}</p>
+
+        <div class="card-footer">
+          <span class="proj-type">{{ p.type }}</span>
+          <span class="arrow">↗</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

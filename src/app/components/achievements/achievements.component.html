@@ -1,0 +1,23 @@
+<section id="achievements" class="section-pad">
+
+  <div #revealEl>
+    <p class="section-label">Recognition</p>
+    <h2 class="section-title">ACHIEVEMENTS</h2>
+  </div>
+
+  <div class="ach-grid">
+    <div
+      class="ach-card reveal"
+      #revealEl
+      *ngFor="let a of data.achievements; let i = index"
+      [style.transition-delay]="(i * 0.1) + 's'"
+    >
+      <div class="ach-icon">{{ a.icon }}</div>
+      <div class="ach-content">
+        <h3 class="ach-title">{{ a.title }}</h3>
+        <p class="ach-sub">{{ a.sub }}</p>
+      </div>
+    </div>
+  </div>
+
+</section>

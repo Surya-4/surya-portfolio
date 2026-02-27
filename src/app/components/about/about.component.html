@@ -1,0 +1,53 @@
+<section id="about" class="section-pad">
+
+  <div class="section-header" #revealEl>
+    <p class="section-label">About Me</p>
+    <h2 class="section-title">THE ENGINEER</h2>
+  </div>
+
+  <div class="about-grid">
+
+    <div class="about-visual reveal" #revealEl>
+      <div class="avatar-wrap">
+        <div class="avatar-frame">
+          <div class="grid-overlay"></div>
+          <div class="avatar-glow"></div>
+          <span class="avatar-initials">SSV</span>
+        </div>
+        <div class="deco-br"></div>
+        <div class="deco-tl"></div>
+
+        <div class="floating-badge">
+          <span class="badge-emoji">🏆</span>
+          <div>
+            <div class="badge-num">800+</div>
+            <div class="badge-label">Problems Solved</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <p class="intro reveal" #revealEl>
+        I'm <strong>Kodavali Sri Surya Vamsi</strong>, an
+        <em>Advanced Application Engineering Analyst</em> at Accenture.
+        I graduated from <strong>IIEST Shibpur</strong> with a B.Tech in
+        Information Technology (CGPA: 8.14).
+      </p>
+      <p class="intro reveal reveal-d1" #revealEl>
+        I specialise in building <em>RESTful microservices</em> with Java &amp;
+        Spring Boot, automating cloud infrastructure with <strong>Terraform</strong>,
+        and crafting full-stack web applications. When I'm not engineering, I'm
+        grinding coding problems or watching cricket.
+      </p>
+
+      <div class="details-grid reveal reveal-d2" #revealEl>
+        <div class="detail-card" *ngFor="let d of data.aboutDetails">
+          <span class="detail-key">{{ d.key }}</span>
+          <span class="detail-val">{{ d.val }}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

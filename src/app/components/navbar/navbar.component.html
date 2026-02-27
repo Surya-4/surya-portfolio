@@ -1,0 +1,17 @@
+<nav [class.scrolled]="scrolled">
+  <a href="#hero" class="nav-logo" (click)="scrollTo('#hero', $event)">
+    SV<em>.</em>
+  </a>
+
+  <ul class="nav-links">
+    <li *ngFor="let link of data.navLinks">
+      <a [href]="link.href" (click)="scrollTo(link.href, $event)">
+        {{ link.label }}
+      </a>
+    </li>
+  </ul>
+
+  <a href="mailto:suryavamsi04@gmail.com" class="nav-cta">
+    Let's Talk
+  </a>
+</nav>

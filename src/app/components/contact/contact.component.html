@@ -1,0 +1,27 @@
+<section id="contact" class="section-pad">
+
+  <span class="bg-text" aria-hidden="true">HELLO</span>
+
+  <div class="inner reveal" #revealEl>
+    <p class="section-label" style="justify-content: center; margin-bottom: 24px;">Contact</p>
+    <h2 class="contact-title">LET'S BUILD<br>SOMETHING</h2>
+    <p class="contact-sub">
+      Have an interesting project, opportunity, or just want to say hi?
+      I'd love to hear from you.
+    </p>
+
+    <div class="link-row">
+      <a
+        class="contact-link"
+        *ngFor="let l of links"
+        [href]="l.href"
+        [target]="l.external ? '_blank' : '_self'"
+        [rel]="l.external ? 'noopener noreferrer' : ''"
+      >
+        <span class="link-icon">{{ l.icon }}</span>
+        {{ l.label }}
+      </a>
+    </div>
+  </div>
+
+</section>

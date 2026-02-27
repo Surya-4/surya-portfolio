@@ -1,0 +1,45 @@
+<section id="hero">
+  <span class="hero-bg-text" aria-hidden="true">DEV</span>
+
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="status-dot"></span>
+      Available for Opportunities
+    </div>
+
+    <h1 class="hero-name">
+      SURYA<br>
+      <span class="outline">VAMSI</span>
+    </h1>
+
+    <p class="hero-tagline">
+      Full Stack <strong>Engineer</strong> &amp; Cloud Enthusiast —
+      building scalable microservices at <strong>Accenture</strong>,
+      crafting elegant APIs with <strong>Spring Boot</strong>.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary" (click)="scrollTo('#projects', $event)">
+        View Work
+      </a>
+      <a href="#contact" class="btn-outline" (click)="scrollTo('#contact', $event)">
+        Get In Touch
+      </a>
+      <a
+        href="https://github.com/Surya-4"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-outline"
+      >
+        GitHub ↗
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat" *ngFor="let s of data.heroStats">
+        <span class="stat-num">{{ s.num }}</span>
+        <span class="stat-label">{{ s.label }}</span>
+      </div>
+    </div>
+  </div>
+</section>
