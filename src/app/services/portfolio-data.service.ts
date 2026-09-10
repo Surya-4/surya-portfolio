@@ -7,28 +7,34 @@ import {
 @Injectable({ providedIn: 'root' })
 export class PortfolioDataService {
 
+  get exp(): string {
+    const time = Date.now() - new Date('2024-06-26T00:00:00').getTime();
+    const years = +((time / (1000 * 60 * 60 * 24 * 365.25)).toFixed(1));
+    return years.toString();
+  }
+
   readonly navLinks: NavLink[] = [
-    { label: 'About',        href: '#about' },
-    { label: 'Skills',       href: '#skills' },
-    { label: 'Experience',   href: '#experience' },
-    { label: 'Projects',     href: '#projects' },
+    { label: 'About', href: '#about' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'Projects', href: '#projects' },
     { label: 'Achievements', href: '#achievements' },
-    { label: 'Contact',      href: '#contact' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   readonly heroStats: HeroStat[] = [
-    { num: '1+',   label: 'Years at Accenture' },
+    { num: this.exp, label: 'Years at Accenture' },
     { num: '800+', label: 'Problems Solved' },
     { num: '8.14', label: 'CGPA — IIEST Shibpur' },
   ];
 
   readonly aboutDetails: AboutDetail[] = [
-    { key: 'Location',  val: 'India' },
-    { key: 'Role',      val: 'App Engineering Analyst' },
-    { key: 'Company',   val: 'Accenture' },
-    { key: 'Degree',    val: 'B.Tech IT — IIEST Shibpur' },
-    { key: 'Email',     val: 'suryavamsi04@gmail.com' },
-    { key: 'Hobbies',   val: 'Cricket · Kabaddi · Movies' },
+    { key: 'Location', val: 'Hyderabad' },
+    { key: 'Role', val: 'Software Engineer' },
+    { key: 'Company', val: 'Accenture' },
+    { key: 'Degree', val: 'B.Tech IT — IIEST Shibpur' },
+    { key: 'Email', val: 'suryavamsi04@gmail.com' },
+    { key: 'Hobbies', val: 'Cricket · Shooting · Movies' },
   ];
 
   readonly skillCategories: SkillCategory[] = [
@@ -40,7 +46,7 @@ export class PortfolioDataService {
     {
       icon: '⚙️',
       title: 'Backend',
-      tags: ['Spring Boot', 'Node.js', 'Express.js', 'REST APIs', 'Microservices'],
+      tags: ['Spring Boot', 'Node.js', 'Express.js', 'FASTAPI', 'REST'],
     },
     {
       icon: '🎨',
@@ -55,7 +61,7 @@ export class PortfolioDataService {
     {
       icon: '☁️',
       title: 'Cloud & DevOps',
-      tags: ['Terraform', 'Cloud Security', 'CI/CD Pipelines', 'IaC'],
+      tags: ['Google Cloud Platform', 'Terraform', 'Cloud Security', 'CI/CD Pipelines', 'IaC'],
     },
     {
       icon: '🛠️',
@@ -72,11 +78,12 @@ export class PortfolioDataService {
       type: 'Full-time',
       role: 'Advanced Application Engineering Analyst',
       bullets: [
-        'Developed and maintained RESTful APIs using Java and Spring Boot to support backend microservices, improving system reliability and reducing response latency across multiple service endpoints.',
-        'Designed and provisioned cloud test environments using Terraform, enabling consistent infrastructure setup and supporting reliable end-to-end cloud security testing.',
-        'Automated secure cleanup of unused cloud resources through scripted pipelines, reducing manual effort and minimising security vulnerabilities and operational costs.',
-        'Collaborated with development and cloud operations teams, analysing logs and cloud states to resolve recurring environment failures and ensure release readiness.',
-        'Enhanced automated cloud security policy tests, increasing compliance coverage and improving validation accuracy across cloud environments.',
+        'Managed Terraform-based cloud infrastructure across 10 shared test environments, provisioning resources and enforcing IAM/ingress policy compliance for 50+ engineering teams.',
+        'Diagnosed and eliminated recurring CI/CD integration test failures across cloud services, stabilizing automated staging pipelines and preventing deployment blocks.',
+        'Automated temporary credential issuance and privilege-escalation checks in Python and Shell, delivering least-privilege access across 10+ core platform teams.',
+        'Engineered lifecycle cleanup scripts in Python across cloud resource types, cutting stale test-resource buildup by 90% and ensuring cross-environment consistency.',
+        'Investigated and resolved stockout incidents by analyzing application logs, system metrics, and recent code deployments, isolating root causes and reducing system downtime.',
+        'Developed 10+ reusable Bash automation scripts for test-environment diagnostics, cutting manual operational overhead by 20+ hours per platform team.'
       ],
     },
     {
@@ -93,6 +100,22 @@ export class PortfolioDataService {
   ];
 
   readonly projects: Project[] = [
+    {
+      name: 'Distributed Rate Limiter',
+      icon: '🚦',
+      type: 'Backend · Distributed Systems',
+      stack: ['Java', 'Spring Boot', 'Redis', 'Lua', 'Testcontainers'],
+      desc: 'Scalable distributed rate limiting service supporting Fixed Window, Sliding Window, and Token Bucket algorithms. Uses atomic Redis Lua scripts to prevent race conditions across distributed instances, with per-client limits, HTTP 429 retry handling, and integration testing.',
+      github: 'https://github.com/Surya-4/rate-limiter',
+    },
+    {
+      name: 'DocMind',
+      icon: '🤖',
+      type: 'AI · Document Intelligence',
+      stack: ['React', 'Spring Boot', 'FastAPI', 'FAISS', 'Redis', 'PostgreSQL'],
+      desc: 'AI-powered document intelligence platform for querying PDF documents using a RAG pipeline. Combines vector similarity search with LLMs to retrieve relevant content and generate contextual answers, with Redis caching and secure JWT authentication.',
+      github: 'https://github.com/Surya-4/docmind',
+    },
     {
       name: 'EastErn',
       icon: '🛍️',
@@ -129,7 +152,7 @@ export class PortfolioDataService {
       name: 'Student result management system',
       icon: '🎓',
       type: 'FullStack · Web Application',
-      stack: ['HTML', 'JavaScript', 'CSS3', 'PHP' , 'MySQL'],
+      stack: ['HTML', 'JavaScript', 'CSS3', 'PHP', 'MySQL'],
       desc: 'Developed a Student Result Management System to manage, store, and generate student academic records efficiently. Enables secure result entry, updates, and performance tracking through an organized interface.',
       github: 'https://github.com/Surya-4/student-result-management-system',
     },
@@ -144,6 +167,11 @@ export class PortfolioDataService {
   ];
 
   readonly achievements: Achievement[] = [
+    {
+      icon: '☁️',
+      title: 'Google Cloud Digital Leader Certification',
+      sub: 'Certified in Google Cloud Digital Leader (CDL), demonstrating foundational knowledge of GCP services, cloud infrastructure, data and AI, security, and Google Cloud’s core technology offerings.',
+    },
     {
       icon: '🏅',
       title: '800+ Coding Problems Solved',
